@@ -1,0 +1,35 @@
+﻿@model IEnumerable<ApplyForJob>
+
+@{
+    ViewData["Title"] = "Requestes";
+}
+
+<head>
+    <!-- FontAwesome Library -->
+    <link rel="stylesheet" href="~/css/all.min.css">
+</head>
+
+<h3 class="mt-4">Employee Applications</h3>
+
+<div class="articles">
+    <div class="container">
+        @foreach (var item in Model)
+        {
+            <div class="box parent">
+                <div class="content">
+                    <h3>@item.Job.Title</h3>
+                    <a asp-action="Index" asp-controller="UserProfile"
+                        asp-route-publisher="@item.Employee">@item.Employee</a>
+                    <p>@item.ApplyDate</p>
+                    <p>@item.Message</p>
+                </div>
+                <div class="info">
+                    <a asp-controller="UserProfile" asp-action="Index"
+                        asp-route-publisher="@item.Employee">Read More</a>
+
+                    <i class="fas fa-long-arrow-alt-right"></i>
+                </div>
+            </div>
+        }
+    </div>
+</div>

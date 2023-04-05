@@ -1,0 +1,33 @@
+﻿@using Jobify.ViewModels;
+@model RolesViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<form asp-action="Create" class="d-flex">
+    <input asp-for="@Model.Role.Name" type="text" placeholder="Add Role ..." />
+    <button type="submit" class="btn btn-outline-primary">Creat</button>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Roles) {
+        <tr>
+            <td>
+                @item.Name
+            </td>
+            <td>
+                <a asp-action="Delete" class="btn btn-outline-danger" asp-route-id="@item.Id">Delete</a> 
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

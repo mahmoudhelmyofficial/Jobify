@@ -1,0 +1,43 @@
+﻿@using Jobify.Data;
+@model ApplicationUser
+
+@{
+    ViewData["Title"] = "EditeProfile";
+}
+
+<div class="col-md-4">
+    <form asp-action="Update" method="post" enctype="multipart/form-data">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-floating mt-2">
+            <input asp-for="@Model.UserName" class="form-control" />
+            <label asp-for="@Model.UserName" class="form-label"></label>
+            <span asp-validation-for="@Model.UserName" class="text-danger"></span>
+        </div>
+        <div class="form-floating mt-2">
+            <input asp-for="@Model.Industry" class="form-control" />
+            <label asp-for="@Model.Industry" class="form-label"></label>
+            <span asp-validation-for="@Model.Industry" class="text-danger"></span>
+        </div>
+        <div class="form-floating mt-2">
+            <input asp-for="@Model.Location" class="form-control" />
+            <label asp-for="@Model.Location" class="form-label"></label>
+            <span asp-validation-for="@Model.Location" class="text-danger"></span>
+        </div>
+        <div class="form-floating mt-2">
+            <input asp-for="@Model.CompanySize" class="form-control" />
+            <label asp-for="@Model.CompanySize" class="form-label"></label>
+            <span asp-validation-for="@Model.CompanySize" class="text-danger"></span>
+        </div>
+        <div class="form-floating mt-2">
+            <input asp-for="@Model.Specialities" class="form-control" />
+            <label asp-for="@Model.Specialities" class="form-label"></label>
+            <span asp-validation-for="@Model.Specialities" class="text-danger"></span>
+        </div>
+        <div class="form-floating mt-2">
+            <input type="file" asp-for="@Model.ProfilePicture" class="form-control" />
+            <label asp-for="@Model.ProfilePicture" class="form-label">Corporate Logo</label>
+            <span asp-validation-for="@Model.ProfilePicture" class="text-danger"></span>
+        </div>
+        <button type="submit" class="w-100 btn btn-lg btn-primary mt-2">Save</button>
+    </form>
+</div>

@@ -1,0 +1,39 @@
+﻿@model ApplyForJob 
+
+@{
+    ViewData["Title"] = "Apply Now..";
+    Layout = null;
+}
+
+<h5>Apply For : @Model.Job.Title </h5>
+
+<form asp-action="Apply" method="post">
+    <div class="form-group">
+        <input asp-for="Job.Id" type="hidden"/>
+        <strong class="mt-1">@Model.Job.JobPublisher</strong>
+        <label class="control-label mb-1">Write brief message to the reqruiter ...</label> 
+        <input type="text" placeholder="please write this message" id="mssgApplication" asp-for="Message" class="form-control mt-2" />
+        <span asp-validation-for="Message" class="text-danger"></span>
+    </div>
+
+    @*@if(Model.HasCV==true){*@
+        <div class="form-group mt-4" style="margin-bottom:25px">
+            <button type="submit" class="btn btn-outline-primary" id="btnapplication">Send My Resume</button>
+        </div>
+    
+    @*else{
+        <div class="form-group mt-4" style="margin-bottom:25px">
+            <button type="submit" class="btn btn-outline-primary" disabled>Send My Resume</button>
+        </div>
+
+        <div class="alert alert-danger mt-4" role="alert">
+            Please Upload Your Resume First !
+        </div>
+    }*@
+    
+</form>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

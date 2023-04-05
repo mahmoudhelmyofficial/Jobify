@@ -1,0 +1,68 @@
+﻿@using Jobify.Data;
+@model ApplicationUser
+
+@{
+    ViewData["Title"] = "EditeProfile";
+}
+
+<div class="col-md-4">
+    <form asp-action="Edit" method="post" enctype="multipart/form-data">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-floating mt-2">
+            <input asp-for="@Model.FirstName" class="form-control" />
+            <label asp-for="@Model.FirstName" class="form-label"></label>
+            <span asp-validation-for="@Model.FirstName" class="text-danger"></span>
+        </div>
+        <div class="form-floating mt-2">
+            <input asp-for="@Model.LastName" class="form-control" />
+            <label asp-for="@Model.LastName" class="form-label"></label>
+            <span asp-validation-for="@Model.LastName" class="text-danger"></span>
+        </div>
+        <div class="form-floating mt-2">
+            <input asp-for="@Model.MiddleName" class="form-control" />
+            <label asp-for="@Model.MiddleName" class="form-label"></label>
+            <span asp-validation-for="@Model.MiddleName" class="text-danger"></span>
+        </div>
+        <div class="form-floating mt-2">
+            <input asp-for="@Model.UserName" class="form-control" />
+            <label asp-for="@Model.UserName" class="form-label"></label>
+            <span asp-validation-for="@Model.UserName" class="text-danger"></span>
+        </div>
+        <div class="form-floating mt-2">
+            <input asp-for="@Model.Email" class="form-control" />
+            <label asp-for="@Model.Email" class="form-label"></label>
+            <span asp-validation-for="@Model.Email" class="text-danger"></span>
+        </div>
+        <div class="form-floating mt-2">
+            <input asp-for="@Model.Location" class="form-control" />
+            <label asp-for="@Model.Location" class="form-label"></label>
+            <span asp-validation-for="@Model.Location" class="text-danger"></span>
+        </div>
+        <div class="form-floating mt-2">
+            <input asp-for="@Model.Nationality" class="form-control" />
+            <label asp-for="@Model.Nationality" class="form-label"></label>
+            <span asp-validation-for="@Model.Nationality" class="text-danger"></span>
+        </div>
+        <div class="form-floating mt-2">
+            <input asp-for="@Model.MilitaryStatus" class="form-control" />
+            <label asp-for="@Model.MilitaryStatus" class="form-label"></label>
+            <span asp-validation-for="@Model.MilitaryStatus" class="text-danger"></span>
+        </div>
+        <div class="form-floating mt-2">
+            <input asp-for="@Model.PhoneNumber" class="form-control" />
+            <label asp-for="@Model.PhoneNumber" class="form-label"></label>
+            <span asp-validation-for="@Model.PhoneNumber" class="text-danger"></span>
+        </div>
+        <div class="form-floating mt-2">
+            <input type="file" asp-for="@Model.ProfilePicture" class="form-control" />
+            <label asp-for="@Model.ProfilePicture" class="form-label"></label>
+            <span asp-validation-for="@Model.ProfilePicture" class="text-danger"></span>
+        </div>
+        <div class="form-floating mt-2">
+            <input type="file" asp-for="@Model.EmployeeCV" class="form-control" accept=".pdf" />
+            <label asp-for="@Model.EmployeeCV" class="form-label"></label>
+            <span asp-validation-for="@Model.EmployeeCV" class="text-danger"></span>
+        </div>
+        <button type="submit" class="w-100 btn btn-lg btn-primary mt-2">Save</button>
+    </form>
+</div>

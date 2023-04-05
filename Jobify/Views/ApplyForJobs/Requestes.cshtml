@@ -1,0 +1,40 @@
+﻿@model IEnumerable<ApplyForJob>
+
+@{
+    ViewData["Title"] = "Requestes";
+}
+
+<h3>Requestes</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Message</th>
+            <th>JobTitle</th>
+            <th>ApplyTime</th>
+            <th>Employee</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Message)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Job.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApplyDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee.UserName)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">Details</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

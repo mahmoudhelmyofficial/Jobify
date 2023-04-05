@@ -1,0 +1,95 @@
+﻿@using Jobify.Data;
+@model ApplicationUser
+
+@{
+    ViewData["Title"] = $"Profile {@Model.UserName}";
+}
+
+<head>
+    <!-- FontAwesome Library -->
+    <link rel="stylesheet" href="~/css/all.min.css">
+</head>
+
+<div class="row" style="margin-top:60px">
+    <div class="col-md-5" style="margin-top:-60px;">
+        <h2 class="mt-4">@Model.UserName</h2>
+        <div class="mt-4">
+            <h5 class="d-inline">FirstName : </h5>
+            <p class="d-inline">@Model.FirstName</p>
+        </div>
+        @if(Model.MiddleName is not null)
+        {
+            <div class="mt-4">
+                <h5 class="d-inline">MiddleName : </h5>
+                <p class="d-inline">@Model.MiddleName</p>
+            </div>
+        }
+        <div class="mt-4">
+            <h5 class="d-inline">LastName : </h5>
+            <p class="d-inline">@Model.LastName</p>
+        </div>
+        <div class="mt-4">
+            <h5 class="d-inline">UserName : </h5>
+            <p class="d-inline">@Model.UserName</p>
+        </div>
+        <div class="mt-4">
+            <h5 class="d-inline">Email : </h5>
+            <p class="d-inline">@Model.Email</p>
+        </div>
+        @if (Model.PhoneNumber is not null)
+        {
+            <div class="mt-4">
+                <h5 class="d-inline">PhoneNumber : </h5>
+                <p class="d-inline">@Model.PhoneNumber</p>
+            </div>
+        }
+        <div style="margin-top:15px">
+            <a class="btn btn-outline-primary mt-4" href="~/CVs/@Model.EmployeeCV" target="_blank"
+               style="width:160px;">CV Previewer</a>
+            @if (User.Identity.Name == Model.UserName)
+            {
+                <a asp-controller="UserProfile" asp-action="Edit" asp-route-user="@Model.UserName"
+               class="btn btn-outline-primary mt-4 ms-2"><i class="fa-regular fa-pen-to-square"></i></a>
+            }
+        </div>
+
+    </div>
+
+    <div class="col-md-4">
+        @if(Model.Nationality is not null)
+        {
+            <div class="mt-4">
+                <h5 class="d-inline">Nationality : </h5>
+                <p class="d-inline">@Model.Nationality</p>
+            </div>
+        }
+        @if (Model.MilitaryStatus is not null)
+        {
+            <div class="mt-4">
+                <h5 class="d-inline">MaritalStatus : </h5>
+                <p class="d-inline">@Model.MilitaryStatus</p>
+            </div>
+        }
+        @if (Model.Location is not null)
+        {
+            <div class="mt-4">
+                <h5 class="d-inline">Location : </h5>
+                <p class="d-inline">@Model.Location</p>
+            </div>
+        }
+    </div>
+
+    <div class="col-md-3">
+        @if (Model.ProfilePicture == null)
+        {
+            <img src="~/assets/img/Avataar.jpg" width="330" height="400" />
+        }
+        else
+        {
+            <img src="data:image\/*;base64,@(Convert.ToBase64String(Model.ProfilePicture))" width="230" height="230"
+             style="border-radius:20px" />
+        }
+
+    </div>
+</div>
+

@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Job>
+
+@{
+    ViewData["Title"] = "Saved Jobs";
+}
+<br />
+
+<h3 style="opacity:0.8">Your Saved Jobs</h3>
+
+<div class="articles">
+    <div class="container">
+        @foreach (var item in Model)
+        {
+            <div class="box">
+                <div class="content">
+                    <h3>@item.Title</h3>
+                    <a asp-action="Profile" asp-controller="Corporate" asp-route-publisher="@item.JobPublisher">@item.JobPublisher</a>
+                    <p>@item.Category.Name</p>
+                    <p>@item.PublishDate</p>
+                    <p>@item.Description</p>
+                </div>
+                <div class="info">
+                    <a asp-controller="ApplyForJobs" asp-action="opportunityDetials"
+                   asp-route-id="@item.Id">Read More</a>
+
+                    <i class="fas fa-long-arrow-alt-right"></i>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>

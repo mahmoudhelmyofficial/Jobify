@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Job>
+@{
+    ViewData["Title"] = "Jobs";
+}
+
+<div class="events" id="Search">
+    <div class="container">
+        <div class="subscribe">
+            <form asp-action="Search">
+                <input type="search" name="term" style="font-size:19px;border:2px solid #2196f3;"
+                       placeholder="Search for your Job or Company  ...">
+
+                <input type="submit" value="Search">
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="articles">
+    <div class="container">
+        @foreach (var item in Model)
+        {
+            <div class="box">
+                <div class="content">
+                    <h3>@item.Title</h3>
+                    <a asp-action="Profile" asp-controller="Corporate" asp-route-publisher="@item.JobPublisher">@item.JobPublisher</a>
+                    <p>@item.Category.Name</p>
+                    <p>@item.PublishDate</p>
+                    <p>@item.Description</p>
+                </div>
+                <div class="info">
+                    <a asp-controller="ApplyForJobs" asp-action="opportunityDetials" asp-route-id="@item.Id">Read More</a>
+                    <i class="fas fa-long-arrow-alt-right"></i>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>

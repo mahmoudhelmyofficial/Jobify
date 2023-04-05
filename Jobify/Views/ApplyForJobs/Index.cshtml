@@ -1,0 +1,29 @@
+﻿@model IEnumerable<ApplyForJob>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<br />
+
+<h3 style="opacity:0.8">All Jobs That You Already Applyed To</h3>
+<div class="articles">
+    <div class="container">
+        @foreach (var item in Model)
+            {
+                <div class="box">
+                  <div class="content">
+                    <h3>@item.Job.Title</h3>
+                    <p>@item.Message</p>
+                    <p>@item.Job.JobPublisher</p>
+                    <p>Applyed at : @item.ApplyDate</p>
+                    <p>Published at : @item.Job.PublishDate</p>
+                  </div>
+                  <div class="info">
+                    <a asp-action="opportunityDetials" asp-route-id="@item.Job.Id">Read More</a>
+                    <i class="fas fa-long-arrow-alt-right"></i>
+                  </div>
+                </div>
+            }
+
+      </div>
+      </div>

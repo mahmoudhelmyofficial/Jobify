@@ -1,0 +1,43 @@
+﻿@using Jobify.ViewModels;
+@model IEnumerable<UserViewModel>
+
+@{
+    ViewData["Title"] = "Users";
+
+}
+
+
+<div class="events" id="Search">
+    <div class="container">
+        <div class="subscribe">
+            <form asp-action="Search">
+                <input type="search" name="term" style="font-size:19px;border:2px solid #2196f3;"
+                       placeholder="Search for User  ...">
+
+                <input type="submit" value="Search">
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div class="articles">
+    <div class="container">
+        @foreach (var item in Model)
+        {
+            <div class="box">
+                <div class="content">
+                    <h3>@item.UserName</h3>
+                    <p>email : @item.Email</p>
+                    <p>Phone number : @item.PhoneNumber</p>
+                    <p>Roles : @string.Join(" , ",item.Roles.ToList())</p>
+                </div>
+                <div class="info">
+                    <a asp-action="Manage" asp-route-id="@item.Id">ManageUser</a>
+                    <i class="fas fa-long-arrow-alt-right"></i>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
